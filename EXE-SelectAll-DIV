@@ -1,0 +1,22 @@
+// EXE-SelectAll-DIV - A Full Featured, Light-Weight, Highlight All DIV Content Script.
+// Copyright (c) 2012 EXEIdeas International - admin@exeideas.tk
+// View Tuotorial At: www.exeideas.com
+function fnSelect(objId) {
+  fnDeSelect();
+	if (document.selection) {
+	var range = document.body.createTextRange();
+ 	range.moveToElementText(document.getElementById(objId));
+	range.select();
+	}
+	else if (window.getSelection) {
+	var range = document.createRange();
+	range.selectNode(document.getElementById(objId));
+	window.getSelection().addRange(range);
+	}
+}		
+function fnDeSelect() {
+	if (document.selection) document.selection.empty(); 
+	else if (window.getSelection)
+    window.getSelection().removeAllRanges();
+}
+// This Is A Copyrighted "EXE-Select All" Code, Don't Try To Theft It Otherwise...!!!
